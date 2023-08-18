@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="RBD" />
+<meta name="author" content="RBD RAM" />
 
 <meta name="date" content="2023-08-18" />
 
-<title>Cost of inaction RBD 2023</title>
+<title>Cost of inaction RBD RAM 2023</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -238,30 +238,71 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Cost of inaction RBD 2023</h1>
-<h4 class="author">RBD</h4>
+<h1 class="title toc-ignore">Cost of inaction RBD RAM 2023</h1>
+<h4 class="author">RBD RAM</h4>
 <h4 class="date">2023-08-18</h4>
 
 </div>
 
 
+<p>L’unité RAM en collaboration avec les unités de Supply Chain &amp;
+BPU du bureau régional du PAM de Dakar a conduit une analyse conjointe
+pour comprendre les effets de la réduction des rations due à la
+réduction des fonds ces dernières années dans un contexte de volatilité
+économique. Cette analyse s’aligne sur le guide méthodologique développé
+par le siège Coût par bénéficiaire et intensité de l’assistance en May
+2022. Cette analyse similaire pour calculer le coût de l’inaction en
+Afrique de l’Est a été faite. En 2022, 29,9 millions de personnes en
+situation d’insécurité alimentaire aiguë - près de 70% des personnes en
+situation d’insécurité alimentaire aiguë n’ont pas reçu d’assistance du
+PAM. Même avec la réponse des gouvernements, 40 % des besoins restent
+non satisfaits. La méthodologie s’aligne sur la même approche mais avec
+quelques analyses complémentaires pour comprendre ce qui arrive
+spécifiquement en termes de nourriture ou de cash aux bénéficiaires
+après la déduction des différents coûts d’opérations.</p>
+<p>Il existe un décalage entre les rapports financiers et les rapports
+sur les résultats/produits (rapport de distribution) qui empêchent le
+PAM d’analyser avec précision les résultats des activités en ce qui
+concerne les ressources allouées. Pour capturer le coût par ration et
+par bénéficiaire, les dépenses doivent être dégroupées. Dans l’analyse,
+nous avons considéré la valeur des quantités distribués sur la base des
+rapports de distribution.</p>
+<p>Les différentes sources de données sont les suivantes:</p>
+<ul>
+<li><p>Distributed quantities (Food MT and Cash-Based Transfers USD):
+COMET/DOTS</p></li>
+<li><p>Budget: Funding outlook from the Management plan</p></li>
+<li><p>Expenditures: WINGS FM System</p></li>
+<li><p>Beneficiaries: COMET Needs-Based Plan (ACR figures)</p></li>
+<li><p>Assistance days: COMET</p></li>
+<li><p>Nutritional Values: NutVal application</p></li>
+<li><p>Food baskets (equivalent of the value of assistance in
+kcal)</p></li>
+<li><p>Food security outcomes (FCS)</p></li>
+<li><p>CH data</p></li>
+</ul>
+<p>Les procédures d’analyse et désagrégation sont détaillées ci-dessous
+pour atteindre les résultats de l’analyse.</p>
+<p>N.B.: Il faut noter que ce sont les données sur les URT1
+(Unconditional Resource Transfer 1) qui ont été principalement utilisées
+pour conduire cette analyse.</p>
 <div id="base-expenditure" class="section level2">
 <h2>Base expenditure</h2>
-<p>Les données que nous avons utilisées dans cette étude concernent
-uniquement les <strong>URT1</strong> (<em>Unconditional Resource
-Transfer 1</em>), . Dans cette base il s’agira de selectionner les
+<p>Les données de ce fichier ont été fournies par BPU (Expenditures:
+WINGS FM System). Dans cette base il s’agira de sélectionner les
 variables pays, Année, modalité d’intervention et dépenses. Ensuite on
 transpose la colonne modalité pour considérer chaque modalité
 d’intervention comme une variable de la base. Comme indiqué dans le
-dossier de référence du siège il s’agira de calcul les dépenses
+dossier de référence du siège il s’agira de calculer les dépenses
 <strong>total Food</strong> et les dépenses <strong>total CBT
-value</strong>. Pour ce qui est du total food on commencera par
+value</strong>. Pour ce qui est du total Food on commencera par
 additionner les variables Food Value, Food Transfer Cost, FTC External
 Transport et Cargo Preference. (<strong>total_cost_food</strong> = Food
-Value + Food Transfer Cost + FTC External Transport +Cargo Preference)
-Par la suite il s’agira de calculer le ISC (Indirect Support Cost) qui
-représente 6.65% des implémentations. il y aura ainsi dans la base ISC
-Food et les ISC cbt. Au final on aura la somme de
+Value + Food Transfer Cost + FTC External Transport +Cargo
+Preference)</p>
+<p>Par la suite il s’agira de calculer le ISC (Indirect Support Cost)
+qui représente 6.65% des implémentations. Il y aura ainsi dans la base
+ISC Food et les ISC cbt. Au final on aura la somme de
 <strong>total_cost_food</strong> plus <strong>total implémentation
 Food</strong> plus <strong>total ISC food</strong>. La même procédure a
 été faite pour la CBT value.</p>

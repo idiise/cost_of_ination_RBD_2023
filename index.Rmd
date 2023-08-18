@@ -1,6 +1,6 @@
 ---
-title: "Cost of inaction RBD 2023"
-author: "RBD"
+title: "Cost of inaction RBD RAM 2023"
+author: "RBD RAM"
 date: "2023-08-18"
 output: 
   html_document:
@@ -22,13 +22,42 @@ library(haven)
 library(DT)
 ```
 
+L’unité RAM en collaboration avec les unités de Supply Chain & BPU du bureau régional du PAM de Dakar a conduit une analyse conjointe pour comprendre les effets de la réduction des rations due à la réduction des fonds ces dernières années dans un contexte de volatilité économique. Cette analyse s’aligne sur le guide méthodologique développé par le siège Coût par bénéficiaire et intensité de l'assistance en May 2022. Cette analyse similaire pour calculer le coût de l’inaction en Afrique de l’Est a été faite.  En 2022, 29,9 millions de personnes en situation d'insécurité alimentaire aiguë - près de 70% des personnes en situation d'insécurité alimentaire aiguë n'ont pas reçu d'assistance du PAM. Même avec la réponse des gouvernements, 40 % des besoins restent non satisfaits. La méthodologie s’aligne sur la même approche mais avec quelques analyses complémentaires pour comprendre ce qui arrive spécifiquement en termes de nourriture ou de cash aux bénéficiaires après la déduction des différents coûts d’opérations. 
+
+Il existe un décalage entre les rapports financiers et les rapports sur les résultats/produits (rapport de distribution) qui empêchent le PAM d'analyser avec précision les résultats des activités en ce qui concerne les ressources allouées. Pour capturer le coût par ration et par bénéficiaire, les dépenses doivent être dégroupées. Dans l’analyse, nous avons considéré la valeur des quantités distribués sur la base des rapports de distribution. 
+
+Les différentes sources de données sont les suivantes: 
+
+  * Distributed quantities (Food MT and Cash-Based Transfers USD): COMET/DOTS 
+
+  * Budget: Funding outlook from the Management plan 
+
+  * Expenditures: WINGS FM System 
+
+  * Beneficiaries: COMET Needs-Based Plan (ACR figures) 
+
+  * Assistance days: COMET 
+
+  * Nutritional Values: NutVal application  
+
+  * Food baskets (equivalent of the value of assistance in kcal) 
+
+  * Food security outcomes (FCS) 
+
+  * CH data 
+
+Les procédures d'analyse et désagrégation sont détaillées ci-dessous pour atteindre les résultats de l’analyse. 
+
+N.B.: Il faut noter que ce sont les données sur les URT1 (Unconditional Resource Transfer 1) qui ont été principalement utilisées pour conduire cette analyse. 
+
 ## Base expenditure
-Les données que nous avons utilisées dans cette étude concernent uniquement les **URT1** (*Unconditional Resource Transfer 1*), .
-Dans cette base il s'agira de selectionner les variables pays, Année, modalité d'intervention et dépenses. Ensuite on transpose la colonne modalité pour considérer chaque modalité d'intervention comme une variable de la base. Comme indiqué dans le dossier de référence du siège il s'agira de calcul les dépenses **total Food** et les dépenses **total CBT value**. 
-Pour ce qui est du total food on commencera par additionner les variables 
+Les données de ce fichier ont été fournies par BPU (Expenditures: WINGS FM System).
+Dans cette base il s'agira de sélectionner les variables pays, Année, modalité d'intervention et dépenses. Ensuite on transpose la colonne modalité pour considérer chaque modalité d'intervention comme une variable de la base. Comme indiqué dans le dossier de référence du siège il s'agira de calculer les dépenses **total Food** et les dépenses **total CBT value**. 
+Pour ce qui est du total Food on commencera par additionner les variables 
 Food Value, Food Transfer Cost, FTC External Transport et Cargo Preference.
 (**total_cost_food** = Food Value + Food Transfer Cost + FTC External Transport +Cargo Preference)
-Par la suite il s'agira de calculer le ISC (Indirect Support Cost) qui représente 6.65%  des implémentations. il y aura ainsi dans la base ISC Food et les ISC cbt.
+
+Par la suite il s'agira de calculer le ISC (Indirect Support Cost) qui représente 6.65%  des implémentations. Il y aura ainsi dans la base ISC Food et les ISC cbt.
 Au final on aura la somme de **total_cost_food** plus **total implémentation Food** plus **total ISC food**.
 La même procédure a été faite pour la CBT value.
 
