@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="RBD" />
+
+<meta name="date" content="2023-08-18" />
+
+<title>Cost of inaction RBD 2023</title>
+
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Cost of inaction RBD 2023</h1>
+<h4 class="author">RBD</h4>
+<h4 class="date">2023-08-18</h4>
+
+</div>
+
+
+<div id="base-expenditure" class="section level2">
+<h2>Base expenditure</h2>
+<p>Les données que nous avons utilisées dans cette étude concernent
+uniquement les <strong>URT1</strong> (<em>Unconditional Resource
+Transfer 1</em>), . Dans cette base il s’agira de selectionner les
+variables pays, Année, modalité d’intervention et dépenses. Ensuite on
+transpose la colonne modalité pour considérer chaque modalité
+d’intervention comme une variable de la base. Comme indiqué dans le
+dossier de référence du siège il s’agira de calcul les dépenses
+<strong>total Food</strong> et les dépenses <strong>total CBT
+value</strong>. Pour ce qui est du total food on commencera par
+additionner les variables Food Value, Food Transfer Cost, FTC External
+Transport et Cargo Preference. (<strong>total_cost_food</strong> = Food
+Value + Food Transfer Cost + FTC External Transport +Cargo Preference)
+Par la suite il s’agira de calculer le ISC (Indirect Support Cost) qui
+représente 6.65% des implémentations. il y aura ainsi dans la base ISC
+Food et les ISC cbt. Au final on aura la somme de
+<strong>total_cost_food</strong> plus <strong>total implémentation
+Food</strong> plus <strong>total ISC food</strong>. La même procédure a
+été faite pour la CBT value.</p>
+<pre class="r"><code>expenditure &lt;- read.csv(&quot;Final data used/last data expenditure 2019 2022.csv&quot;)
+expenditure &lt;- expenditure |&gt; filter(
+  Fiscal.Year %in% c(2019:2022) 
+)
+
+expenditure3 &lt;- expenditure |&gt; select(
+  Country, Fiscal.Year, Modality, Expenditures..USD.
+)
+
+expenditure3 &lt;- expenditure3 |&gt; group_by(
+  Country, Fiscal.Year,Modality,
+) |&gt; summarise(expend = sum(Expenditures..USD.))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;, &#39;Fiscal.Year&#39;. You can override
+## using the `.groups` argument.</code></pre>
+<pre class="r"><code>expenditure4 &lt;- expenditure3 |&gt; pivot_wider(
+  names_from = Modality, values_from = expend
+)
+
+# calcul total food cost
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  `Food Value` = case_when(
+    is.na(`Food Value`) ~ 0,
+    TRUE~ `Food Value`
+  ),
+  `Food Transfer Cost` = case_when(
+    is.na(`Food Transfer Cost`) ~ 0,
+    TRUE~ `Food Transfer Cost`
+  ),
+  `FTC External Transport` = case_when(
+    is.na(`FTC External Transport`) ~ 0,
+    TRUE ~ `FTC External Transport`
+  ),
+  `Cargo Preference` = case_when(
+    is.na(`Cargo Preference`) ~ 0,
+    TRUE ~ `Cargo Preference`
+  )
+  
+) |&gt; mutate(
+  total_cost_food = `Food Value` + `Food Transfer Cost` + `FTC External Transport` +`Cargo Preference`)
+
+#remetre les NA
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  `Food Value` = case_when(
+    `Food Value` == 0 ~ NA,
+    TRUE~ `Food Value`
+  ),
+  `Food Transfer Cost` = case_when(
+    `Food Transfer Cost` == 0 ~ NA,
+    TRUE~ `Food Transfer Cost`
+  ),
+  `FTC External Transport` = case_when(
+    `FTC External Transport` == 0 ~ NA,
+    TRUE ~ `FTC External Transport`
+  ),
+  `Cargo Preference` = case_when(
+    `Cargo Preference` == 0 ~ NA,
+    TRUE ~ `Cargo Preference`
+  )
+ 
+  
+)
+
+expenditure4 &lt;- expenditure4 |&gt; rename(
+  Year = &quot;Fiscal.Year&quot;
+) |&gt; relocate(
+  c(`Food Value`,`Food Transfer Cost`,`Cargo Preference`), .after = `FTC External Transport`
+)
+
+
+expenditure4 &lt;- expenditure4 |&gt; relocate(
+  `FTC External Transport`, .after = `Food Transfer Cost`
+)
+
+
+expenditure4 &lt;- expenditure4 |&gt; relocate(
+  total_cost_food, .after = `Cargo Preference`
+)
+
+expenditure4 &lt;- expenditure4 |&gt; relocate(
+  Implementation, .after = `Service Delivery`
+)
+
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  `CBT CV Value` = case_when(
+    is.na(`CBT CV Value`) ~ 0,
+    TRUE~ `CBT CV Value`
+  ),
+  `CBT CV Transfer Cost` = case_when(
+    is.na(`CBT CV Transfer Cost`) ~ 0,
+    TRUE~ `CBT CV Transfer Cost`
+  )
+  
+) |&gt; mutate(
+  total_cost_CBT = `CBT CV Value` + `CBT CV Transfer Cost` )
+
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  `CBT CV Value` = case_when(
+    `CBT CV Value` == 0 ~ NA,
+    TRUE~ `CBT CV Value`
+  ),
+  `CBT CV Transfer Cost` = case_when(
+    `CBT CV Transfer Cost` == 0 ~ NA,
+    TRUE ~ `CBT CV Transfer Cost`
+  )
+)
+
+expenditure4 &lt;- expenditure4 |&gt; relocate(
+  `CBT CV Value`, .before = `CBT CV Transfer Cost`
+)
+
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  all_modalities_cost = total_cost_food + total_cost_CBT
+) |&gt; relocate(all_modalities_cost, .before = Implementation)
+
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  food_cost_percent = round((total_cost_food/all_modalities_cost),3),
+  CBT_cost_percent = round((total_cost_CBT/all_modalities_cost),3)
+) |&gt; relocate(
+  food_cost_percent, .after = total_cost_food
+) |&gt; relocate(
+  CBT_cost_percent, .after = total_cost_CBT
+)
+
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  Implementation_food =  food_cost_percent * Implementation,
+  Implementation_CBT = CBT_cost_percent * Implementation
+) |&gt; relocate(
+  c(Implementation_food,Implementation_CBT), .after = Implementation
+)
+
+# cost food et cbt + implementation food et cbt
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  total_cost_implementation_food = total_cost_food + Implementation_food,
+  total_cost_implementation_CBT = total_cost_CBT + Implementation_CBT
+)
+
+# ISC food et cbt
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  isc_food = total_cost_implementation_food*0.065,
+  isc_CBT = total_cost_implementation_CBT*0.065
+)
+
+# total cost + ISC 
+expenditure4 &lt;- expenditure4 |&gt; mutate(
+  total_cost_final_food = total_cost_implementation_food + isc_food,
+  total_cost_final_CBT = total_cost_implementation_CBT + isc_CBT
+)</code></pre>
+</div>
+<div id="classement-par-région" class="section level2">
+<h2>Classement par région</h2>
+<p>Dans la base expenditure les pays ne sont pas classé par région c’est
+à dire pays costal, Sahel etc… Donc pour prendre en compte cette
+classification une petite base a été créer afin de l’ajouter dans les
+bases ou il n’yen aura pas</p>
+<pre class="r"><code>group_country &lt;- data.frame(
+  stringsAsFactors = FALSE,
+                              Country = c(&quot;Benin&quot;,&quot;Burkina Faso&quot;,&quot;Cameroon&quot;,
+                                        &quot;Cape Verde&quot;,&quot;Central African Republic&quot;,&quot;Chad&quot;,
+                                        &quot;Cote d&#39;Ivoire&quot;,&quot;Gambia&quot;,&quot;Ghana&quot;,
+                                        &quot;Guinea&quot;,&quot;Guinea-Bissau&quot;,&quot;Liberia&quot;,
+                                        &quot;Mali&quot;,&quot;Mauritania&quot;,&quot;Niger&quot;,&quot;Nigeria&quot;,
+                                        &quot;Sao Tome and Principe&quot;,&quot;Senegal&quot;,
+                                        &quot;Sierra Leone&quot;,&quot;Togo&quot;),
+                           Group  = c(&quot;Coastal&quot;,&quot;Sahel&quot;,&quot;CAR/CMR/NGA&quot;,&quot;Coastal&quot;,
+                                        &quot;CAR/CMR/NGA&quot;,&quot;Sahel&quot;,&quot;Coastal&quot;,
+                                        &quot;Coastal&quot;,&quot;Coastal&quot;,&quot;Coastal&quot;,&quot;Coastal&quot;,
+                                        &quot;Coastal&quot;,&quot;Sahel&quot;,&quot;Sahel&quot;,&quot;Sahel&quot;,
+                                        &quot;CAR/CMR/NGA&quot;,&quot;Coastal&quot;,&quot;Coastal&quot;,
+                                        &quot;Coastal&quot;,&quot;Coastal&quot;)
+                 )</code></pre>
+</div>
+<div id="base-beneficiary" class="section level2">
+<h2>Base beneficiary</h2>
+<p>Dans la base bénéficiaire trois variables ont été renommées
+Actual.Food., Actual.CBT. et Actual.Total.</p>
+<pre class="r"><code>beneficiaire &lt;- read.xlsx(&quot;Final data used/New_data_benef_06_07_2023.xlsx&quot;,sheetName = 1)
+
+# )
+
+# renommer les variables de beneficiaires
+beneficiaire_urt &lt;- beneficiaire |&gt; rename(
+  benef_food = Actual.Food.,
+  benef_CBT = Actual.CBT.,
+  total_beneficiaries = Actual.Total.
+)</code></pre>
+</div>
+<div id="base-commodity" class="section level2">
+<h2>Base Commodity</h2>
+<p>Dans cette base commodité provenant de supply chaîne nous avons les
+commodités distribués, les quantités en métric tonne et la valeur total
+par commodité. Pour Calculer le cost of inaction comme indiqué dans la
+formule ci-dessous <img src="formula.png" /> nous avons utilisé le total
+cost en terme de Kcal et pour cela nous allons d’abord chercher les
+équivalents des commodités dans la base Nut val pour avoir les Kcal de
+chaque modalité de la base. Nous allons copier les variables de la base
+commodité dans un fichier excel vide que nous allons sauvegarder sous le
+nom <strong>equivalent</strong> après avoir ajouté les équivalents de
+chaque modalité à partir de la base <strong>nutrition</strong> puis nous
+allons faire une rechercheV pour ajouter les équivalents en kcal de
+chaque modalité. Cependant il faut noter que les kcal obtenus sont par
+100g de chaque modalité et viennent du logiciel Nut val</p>
+<pre class="r"><code>commodities &lt;- read.xlsx(&quot;Final data used/commodity last.xlsx&quot;,sheetName = 1)
+# regrouper par commodité
+commodities2 &lt;- commodities |&gt; dplyr::group_by(
+  Country_Name, Group, Document_Year,Commodity_Name
+) |&gt; summarise(
+  Tot_qtityMT = sum(SUM_of_Distributed_Quantity_MT, na.rm = TRUE),
+  # Cmdty_Price_USD = mean(Cmdty_Price_USD, na.rm=TRUE),
+  Tot_Value_distributed = sum(SUM_of_Cmdty_value_distributed, na.rm = TRUE)
+)</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country_Name&#39;, &#39;Group&#39;, &#39;Document_Year&#39;.
+## You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code># importer la base dans laquelle nutval pour avoir les équivalents Kcal
+equivalent &lt;- read.xlsx(&quot;Final data used/equivalent.xlsx&quot;, sheetName = 1)
+nutriton &lt;- read.xlsx(&quot;Final data used/nutrition.xlsx&quot;,sheetName = 1)
+
+
+commodities3 &lt;- commodities2 |&gt; mutate(
+  var_equivalent = vlookup(lookup_column = &quot;Commodity_Name&quot;,dict = equivalent,result_column = &quot;equivalent&quot;,lookup_value = Commodity_Name )
+) |&gt; mutate(
+  kcal = vlookup(lookup_column = &quot;Food.Commodities.and.Products&quot;,dict = nutriton,result_column = &quot;kcal&quot;,lookup_value = var_equivalent )
+)
+
+commodities3 &lt;- commodities3 |&gt; 
+  rename(
+    Country = Country_Name,
+    Year = Document_Year
+  )</code></pre>
+</div>
+<div id="base-fcs-et-assistance-days" class="section level2">
+<h2>Base FCS et Assistance days</h2>
+<p>Cette base est utilisée pour faire des analyses suplémentaires. Dans
+cette base nous avons le score de consommation alimentaire acceptable
+des pays. Pour avoir le score de consommation alimentaire pauvre plus
+limite il faut faire la différence 100 moins la valeur du score FCS
+acceptable.</p>
+<p>Dans cette partie il s’agira également d’importer la base pour avoir
+l’assiantance days food et l’assistance day cbt</p>
+<pre class="r"><code>fcs &lt;- read.xlsx(&quot;Final data used/FCS Acceptable.xlsx&quot;,sheetName = 1)
+fcs &lt;- fcs |&gt; select(Country, everything())
+fcs &lt;- fcs |&gt; mutate(
+  # FCS_acceptable = round(Acceptable.FCS,2)
+   FCS_poor_borderline = round((100 - Acceptable.FCS),2)
+)  |&gt; select(-Acceptable.FCS)
+
+fcs$Year &lt;- as.numeric(fcs$Year)
+
+## Assistance days
+assistance_food &lt;- read.xlsx(&quot;Final data used/Assistance_days (2).xlsx&quot;,sheetName = 1)
+assistance_cash &lt;- read.xlsx(&quot;Final data used/Assistance_days (2).xlsx&quot;,sheetName = 2)
+
+assistance_cash$Year &lt;- as.numeric(assistance_cash$Year)</code></pre>
+</div>
+<div id="jointure" class="section level2">
+<h2>Jointure</h2>
+<p>Dans cette partie il s’agira de joindre les bases bénéficiaires,
+expenditures, commodité et fcs. Pour Procéder à la jointure des fichiers
+on prendra comme variable de référence les variables, pays, année et
+group. Il faut aussi noter que les pays tels que
+<strong>Senegal</strong>, <strong>CAR</strong>, <strong>Guinée
+bissau</strong>, <strong>Liberia</strong> et <strong>Ghana</strong>
+n’apparaissent pas dans la base commodité pour l’activité URT1 donc il
+faudra calculer les kcal pour les pays dont les commodités sont
+renseignés puis ajouter ces 5 pays dans la base avec valeurs manquantes
+pour le Kcal comme indiqué dans la syntax ci-dessous Pour avoir les Kcal
+des modalités il faudra prendre en compte que le logiciel <strong>Nut
+val</strong> donne les kcal pour <strong>100g</strong> alors que notre
+base commodité contient des données en Metric tonne. (1MT = 1000000g).
+*Pour avoir les kcal on multiplie la variable **Tot_qtityMT par 10000 et
+par le kcal correspondant de la commodité* .</p>
+<p>Par exemple pour si pour 100g de manioc le kcal correspondant est 15.
+combien de Kcal faut-il pour 20Mt de manioc il suffira de faire une
+règle de trois et faire <strong>20 * 10000 * 15</strong> ce qui fera
+3000000 kcal pour les 20MT.</p>
+<pre class="r"><code>beneficiaire_urt$Year &lt;- as.numeric(beneficiaire_urt$Year)
+# jointure beneficaire et expenditure
+benef_expend &lt;- beneficiaire_urt  |&gt; left_join(
+  expenditure4, by = c(&quot;Country&quot;,&quot;Year&quot;)
+)
+
+benef_expend2 &lt;- benef_expend |&gt; mutate(
+  Group = maditr::vlookup(lookup_column = &quot;Country&quot;,dict = group_country,result_column = &quot;Group&quot;,lookup_value = Country
+                    )
+)
+
+benef_expend2 &lt;- benef_expend2 |&gt; relocate(
+  Group, .after = &quot;Country&quot;
+)
+
+
+
+#différence entre les deux datasests
+setdiff(unique(commodities3$Country), unique(benef_expend2$Country))</code></pre>
+<pre><code>## character(0)</code></pre>
+<pre class="r"><code>setdiff(unique(benef_expend2$Country),unique(commodities3$Country))</code></pre>
+<pre><code>## [1] &quot;Central African Republic&quot; &quot;Ghana&quot;                   
+## [3] &quot;Guinea-Bissau&quot;            &quot;Liberia&quot;                 
+## [5] &quot;Senegal&quot;                  NA</code></pre>
+<pre class="r"><code>benef_expend_assist &lt;- benef_expend2 |&gt; left_join(
+  assistance_food, by = c(&quot;Country&quot;,&quot;Group&quot;,&quot;Year&quot;)
+)
+
+benef_expend_assist &lt;- benef_expend_assist |&gt; left_join(
+  assistance_cash, by = c(&quot;Country&quot;,&quot;Group&quot;,&quot;Year&quot;)
+)
+
+benef_expend_assist_fcs &lt;- benef_expend_assist |&gt; left_join(
+  fcs, by = c(&quot;Country&quot;,&quot;Group&quot;,&quot;Year&quot;)
+)
+
+setdiff(unique(commodities3$Country), unique(benef_expend_assist_fcs$Country))</code></pre>
+<pre><code>## character(0)</code></pre>
+<pre class="r"><code>setdiff(unique(benef_expend_assist_fcs$Country),unique(commodities3$Country))</code></pre>
+<pre><code>## [1] &quot;Central African Republic&quot; &quot;Ghana&quot;                   
+## [3] &quot;Guinea-Bissau&quot;            &quot;Liberia&quot;                 
+## [5] &quot;Senegal&quot;                  NA</code></pre>
+<pre class="r"><code>all_country &lt;- unique(benef_expend2$Country)
+missing_in_commodities3 &lt;- c(&quot;Central African Republic&quot;,&quot;Senegal&quot;,&quot;Guinea-Bissau&quot;,&quot;Liberia&quot;,
+                             &quot;Ghana&quot;)
+
+country_in_commodities3 &lt;- all_country[!(all_country %in% missing_in_commodities3)]
+
+benef_expend_assist_fcs2 &lt;- benef_expend_assist_fcs |&gt; filter(
+  Country %in% country_in_commodities3
+)
+
+benef_expend_assist_fcs3 &lt;- benef_expend_assist_fcs |&gt; filter(
+  Country %in% missing_in_commodities3
+)
+
+#Jointure commodities et autres bases
+commo_benef_exp_days_FCS &lt;- commodities3 |&gt; left_join(
+  benef_expend_assist_fcs2, by = c(&quot;Country&quot;,&quot;Group&quot;,&quot;Year&quot;)
+)</code></pre>
+<pre><code>## Warning in left_join(commodities3, benef_expend_assist_fcs2, by = c(&quot;Country&quot;, : Detected an unexpected many-to-many relationship between `x` and `y`.
+## ℹ Row 268 of `x` matches multiple rows in `y`.
+## ℹ Row 2 of `y` matches multiple rows in `x`.
+## ℹ If a many-to-many relationship is expected, set `relationship =
+##   &quot;many-to-many&quot;` to silence this warning.</code></pre>
+<pre class="r"><code># ajouter les pays manquants à la base
+setdiff(names(commo_benef_exp_days_FCS), names(benef_expend_assist_fcs3))</code></pre>
+<pre><code>## [1] &quot;Commodity_Name&quot;        &quot;Tot_qtityMT&quot;           &quot;Tot_Value_distributed&quot;
+## [4] &quot;var_equivalent&quot;        &quot;kcal&quot;</code></pre>
+<pre class="r"><code>benef_expend_assist_fcs3 &lt;- benef_expend_assist_fcs3 |&gt; mutate(
+  Commodity_Name = NA,Tot_qtityMT = NA,Tot_Value_distributed = NA,var_equivalent = NA,
+  kcal = NA
+)
+
+commo_benef_exp_days_FCS &lt;- commo_benef_exp_days_FCS |&gt; bind_rows(
+  benef_expend_assist_fcs3
+)
+
+
+
+commo_benef_exp_days_FCS &lt;- commo_benef_exp_days_FCS |&gt; mutate(
+  total_kcal = round(Tot_qtityMT * 10000 * kcal,2)
+)
+
+commo_benef_exp_days_FCS &lt;- commo_benef_exp_days_FCS |&gt; relocate(
+  total_kcal, .after = Tot_qtityMT
+)</code></pre>
+</div>
+<div id="calculation" class="section level2">
+<h2>calculation</h2>
+<p>Dans cette partie il s’agira de calculer les indicateurs tels que le
+<strong>daily_CpB_food</strong> et le <strong>daily_CpB_CBT</strong> en
+utilisant la formule indiquée par HQ et présenté dans la partie du
+traitement de la base Commodité.</p>
+<p>La base finale regroupant toutes les variables est nommée
+<strong>final_data_COI</strong>.</p>
+<pre class="r"><code>#daily cost per beneficiary food
+final_dataset_COI &lt;- commo_benef_exp_days_FCS |&gt; mutate(
+  daily_CpB_food = round(total_cost_final_food/(benef_food*assistance_days_food_2),2)
+)
+
+
+
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  daily_CpB_CBT = round(total_cost_final_CBT/(benef_CBT*assistance_days_CBT_2),2)
+)
+
+# CpB food pour benefeciary total from commodity data
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  daily_CpB_food_benef = round(Tot_Value_distributed/(benef_food*assistance_days_food_2),2)
+)
+
+
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  daily_CpB_CBT_benef = round(`CBT CV Value`/(benef_CBT*assistance_days_CBT_2),2)
+)
+
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  total_cost_final_food = case_when(
+    is.na(total_cost_final_food) ~ 0,
+    TRUE~ total_cost_final_food
+  ),
+  total_cost_final_CBT = case_when(
+    is.na(total_cost_final_CBT) ~ 0,
+    TRUE~ total_cost_final_CBT
+  )
+)
+
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  total_beneficiaries = case_when(
+    is.na(total_beneficiaries) ~ 0,
+    TRUE~ total_beneficiaries
+  )
+)
+
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  assistance_days_food_2 = case_when(
+    is.na(assistance_days_food_2) ~ 0,
+    TRUE~ assistance_days_food_2
+  ),
+  assistance_days_CBT_2 = case_when(
+    is.na(assistance_days_CBT_2) ~ 0,
+    TRUE~ assistance_days_CBT_2
+  )
+)</code></pre>
+</div>
+<div id="tabulation" class="section level2">
+<h2>Tabulation</h2>
+<p>Dans cette partie nous allons sortir les résultats par pays par année
+afin de les intégrer dans notre rapport d’analyse.</p>
+<pre class="r"><code>pays &lt;- unique(final_dataset_COI$Country)
+exclude_elements &lt;- c(&quot;Sao Tome and Principe&quot;,&quot;Senegal&quot;,&quot;Guinea-Bissau&quot;,&quot;Ghana&quot;,
+                      &quot;Senegal&quot;)
+
+pays &lt;- pays[!(pays %in% exclude_elements)]
+
+cpb_food &lt;- final_dataset_COI |&gt; filter(Country %in% pays)  |&gt;dplyr::group_by(Country, Year) |&gt; 
+  summarise(daily_CpB_food = mean(daily_CpB_food)) |&gt; pivot_wider(
+    names_from = Year, values_from = daily_CpB_food
+  ) |&gt; mutate(
+    assistance = &quot;food&quot;
+  ) |&gt; select(Country, assistance, 5, everything())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code># #cpb by year
+
+cpb_food &lt;- cpb_food[-9,]
+  # CpB Food per Year
+colMeans(cpb_food[,3:6], na.rm = TRUE)</code></pre>
+<pre><code>##      2019      2020      2021      2022 
+## 0.1710000 0.4546154 0.3321429 0.4266667</code></pre>
+<pre class="r"><code>cpb_cbt &lt;- final_dataset_COI |&gt; filter(Country %in% pays) |&gt;dplyr::group_by(Country, Year) |&gt; 
+  summarise(daily_CpB_CBT = mean(daily_CpB_CBT)) |&gt; pivot_wider(
+    names_from = Year, values_from = daily_CpB_CBT
+  ) |&gt;  mutate(
+    assistance = &quot;CBT&quot;
+  ) |&gt; select(Country, assistance, 5, everything())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>cpb_cbt &lt;- cpb_cbt[-c(9,15),]
+colMeans(cpb_cbt[,3:6], na.rm = TRUE)</code></pre>
+<pre><code>##      2019      2020      2021      2022 
+## 0.3562500 0.1610000 0.2725000 0.1992593</code></pre>
+<pre class="r"><code>##### cpb food benef ######################
+cpb_food_benef &lt;- final_dataset_COI |&gt; filter(Country %in% pays)  |&gt;dplyr::group_by(Country, Year) |&gt; 
+  summarise(daily_CpB_food_benef = mean(daily_CpB_food_benef)) |&gt; pivot_wider(
+    names_from = Year, values_from = daily_CpB_food_benef
+  ) |&gt; mutate(
+    assistance = &quot;food&quot;
+  ) |&gt; select(Country, assistance, 5, everything())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>#cpb by year
+# cpb_food_year &lt;- final_dataset_COI  |&gt;dplyr::group_by( Year) |&gt; 
+#   summarise(daily_CpB_food = mean(daily_CpB_food, na.rm= TRUE)) 
+cpb_food_benef &lt;- cpb_food_benef[-c(4,9),]
+  
+colMeans(cpb_food_benef[,3:6], na.rm = TRUE)</code></pre>
+<pre><code>##       2019       2020       2021       2022 
+## 0.01535282 0.01266968 0.02392259 0.03060917</code></pre>
+<pre class="r"><code>cpb_cbt_benef &lt;- final_dataset_COI |&gt; filter(Country %in% pays) |&gt;dplyr::group_by(Country, Year) |&gt; 
+  summarise(daily_CpB_CBT_benef = mean(daily_CpB_CBT_benef)) |&gt; pivot_wider(
+    names_from = Year, values_from = daily_CpB_CBT_benef
+  ) |&gt;  mutate(
+    assistance = &quot;CBT&quot;
+  ) |&gt; select(Country, assistance, 5, everything())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>cpb_cbt_benef &lt;- cpb_cbt_benef[-c(8,9,15),]
+
+colMeans(cpb_cbt_benef[,3:6], na.rm = TRUE)</code></pre>
+<pre><code>##      2019      2020      2021      2022 
+## 0.3100000 0.1475000 0.2050000 0.1603704</code></pre>
+<pre class="r"><code>###########################################################################
+
+
+# cpb versus ration
+cpb_food_2022 &lt;- cpb_food |&gt; select(
+ c(1,4)
+)
+colnames(cpb_food_2022)[2] &lt;- &quot;cpb_food&quot;
+
+
+cpb_food &lt;- cpb_food |&gt; mutate(
+  assistance = &quot;food&quot;
+)
+
+cpb_cbt &lt;- cpb_cbt |&gt; mutate(
+  assistance = &quot;CBT&quot;
+)
+
+cpb_food_cbt &lt;- cpb_food |&gt; bind_rows(cpb_cbt) |&gt; 
+  arrange(Country) |&gt; select(
+    c(1,6,5,everything())
+  )
+
+## value of assistance kcal
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  value_assistance_food = round(total_kcal/(benef_food*assistance_days_food_2),2)
+)
+## value of assistance usd
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  value_assistance_food_usd = round(Tot_Value_distributed/(benef_food*assistance_days_food_2),2)
+)
+
+final_dataset_COI &lt;- final_dataset_COI |&gt; mutate(
+  value_assistance_CBT = round(`CBT CV Value`/(benef_CBT*assistance_days_CBT_2),2)
+)
+## Value assistance food
+value_assistance_food &lt;- final_dataset_COI |&gt; dplyr::group_by(
+  Country, Year
+) |&gt; summarise(value_assistance_food = sum( value_assistance_food, na.rm = TRUE))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>## Value assistance USD
+value_assistance_food_usd &lt;- final_dataset_COI |&gt; dplyr::group_by(
+  Country, Year
+) |&gt; summarise(value_assistance_food_usd = sum( value_assistance_food_usd))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Country&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>value_assistance_food_year &lt;- final_dataset_COI |&gt; dplyr::group_by(
+  Year
+) |&gt; summarise(value_assistance_food_year = sum( value_assistance_food_usd))
+
+
+
+
+
+value_assistance_food &lt;- value_assistance_food |&gt; pivot_wider(names_from = Year,values_from = value_assistance_food )
+value_assistance_food &lt;- value_assistance_food[-c(4,8,10,11,17),]
+value_assistance_food &lt;- value_assistance_food |&gt; select(
+  c(1,5),everything()
+)
+
+value_assistance_food[7,2] &lt;- NA
+value_assistance_food[7,3] &lt;- NA
+value_assistance_food[12,3] &lt;- NA
+value_assistance_food[12,4] &lt;- NA
+
+colMeans(value_assistance_food[,2:5], na.rm = TRUE)</code></pre>
+<pre><code>##     2019     2020     2021     2022 
+## 619.0600 992.3625 835.8446 951.8742</code></pre>
+<pre class="r"><code>value_assistance_food_usd &lt;- value_assistance_food_usd |&gt; pivot_wider(names_from = Year,values_from = value_assistance_food_usd                                                  )
+
+
+
+value_assistance_food_year &lt;- colMeans(value_assistance_food[,2:5],na.rm = TRUE)</code></pre>
+</div>
+<div
+id="simulation-ou-estimation-du-total-cost-et-du-nombre-de-bénéficiaire"
+class="section level2">
+<h2>Simulation ou estimation du total cost et du nombre de
+bénéficiaire</h2>
+<p>A partir de la formule de calcul du cpB proposée par HQ on peut
+estimer le nombre de bénéficiaire à partir de budget donné en fonction
+de différntes rations et de nombre de jour d’assistances. Inversement on
+peut estimer le budget à partir d’un nombre de bénéficiarires données.
+L’application ci-après a été développé pour faciliter l’estimation du
+nombre de bénéficiaires et du budget à partir d’un CpB donnée et de la
+value of assistance.</p>
+<p><a href="https://idyise.shinyapps.io/coi_estimation/"
+class="uri">https://idyise.shinyapps.io/coi_estimation/</a></p>
+<p>la syntaxe ci-dessous permet également de faire l’estimation</p>
+<pre class="r"><code># Sénario 1
+# estimation of total beneficiary
+totalcost1 &lt;- 2300000000
+assistance_days_simulated1 &lt;- 365
+cbp_food_2022 &lt;- 0.43
+value_assistance_food_year_2022 &lt;- 951.8742
+cpb_full_simulated &lt;- function(x){
+   (x*cbp_food_2022)/value_assistance_food_year_2022
+}
+
+cpb_full_ration &lt;- cpb_full_simulated(2100)
+# cpb_full_ration = 0.9183082
+
+
+benef_simulated1 = round(totalcost1/(assistance_days_simulated1*cpb_full_simulated(2100)))
+
+
+# Estimation of total cost
+benef_simulated1 &lt;- 43000000
+assistance_days_simulated1 &lt;- 365
+cbp_food_2022 &lt;- 0.43
+value_assistance_food_year_2022 &lt;- 951.8742 
+cpb_full_simulated &lt;- function(x){
+   (x*cbp_food_2022)/value_assistance_food_year_2022
+}
+
+cpb_full_ration &lt;- cpb_full_simulated(2100)
+
+totalcost_simulated = round(benef_simulated1*(assistance_days_simulated1*cpb_full_simulated(2100)))</code></pre>
+</div>
+<div id="exportation" class="section level2">
+<h2>Exportation</h2>
+<pre class="r"><code># write_xlsx(final_dataset_COI,&quot;output/final_data_COI.xlsx&quot;)
+# # write_xlsx(coi_tab,&quot;output/final_data.xlsx&quot;)
+# # write_xlsx(coi_tab_cbt,&quot;output/final_data_cbt.xlsx&quot;)
+# write_xlsx(cpb_food,&quot;output/cpb_food.xlsx&quot;)
+# write_xlsx(cpb_cbt,&quot;output/cpb_cbt.xlsx&quot;)
+# write_xlsx(cpb_food_cbt,&quot;output/cpb_food_cbt.xlsx&quot;)
+# write_xlsx(cpb_food_year,&quot;output/cpb_food_year.xlsx&quot;)
+# write_xlsx(cpb_CBT_year,&quot;output/cpb_CBT_year.xlsx&quot;)
+# write_xlsx(cpb_food_benef,&quot;output/cpb_food_benef.xlsx&quot;)
+# write_xlsx(cpb_cbt_benef,&quot;output/cpb_cbt_benef.xlsx&quot;)</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
