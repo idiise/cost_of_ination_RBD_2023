@@ -1,5 +1,5 @@
 ---
-title: "Cost of inaction RBD RAM 2023"
+title: "Cost of inaction RBD RAM 2023: Methodology"
 author: "RBD RAM"
 date: "2023-08-18"
 output: 
@@ -22,44 +22,95 @@ library(haven)
 library(DT)
 ```
 
-L’unité RAM en collaboration avec les unités de Supply Chain & BPU du bureau régional du PAM de Dakar a conduit une analyse conjointe pour comprendre les effets de la réduction des rations due à la réduction des fonds ces dernières années dans un contexte de volatilité économique. Cette analyse s’aligne sur le guide méthodologique développé par le siège Coût par bénéficiaire et intensité de l'assistance en May 2022. Cette analyse similaire pour calculer le coût de l’inaction en Afrique de l’Est a été faite.  En 2022, 29,9 millions de personnes en situation d'insécurité alimentaire aiguë - près de 70% des personnes en situation d'insécurité alimentaire aiguë n'ont pas reçu d'assistance du PAM. Même avec la réponse des gouvernements, 40 % des besoins restent non satisfaits. La méthodologie s’aligne sur la même approche mais avec quelques analyses complémentaires pour comprendre ce qui arrive spécifiquement en termes de nourriture ou de cash aux bénéficiaires après la déduction des différents coûts d’opérations. 
+RBD RAM, in collaboration with Supply Chain and BPU conducted a joint analysis to quantify the impacts of the World Food Programme’s funding shortfalls in the Western Africa region in 2021 and 2022, and to estimate the potential impacts on food insecure populations and WFP future operations. 
 
-Il existe un décalage entre les rapports financiers et les rapports sur les résultats/produits (rapport de distribution) qui empêchent le PAM d'analyser avec précision les résultats des activités en ce qui concerne les ressources allouées. Pour capturer le coût par ration et par bénéficiaire, les dépenses doivent être dégroupées. Dans l’analyse, nous avons considéré la valeur des quantités distribués sur la base des rapports de distribution. 
+The main methodology aligns with that of the **Cost of Inaction on WFP Food Assistance in Eastern Africa (2021 & 2022)**, with additional analyses conducted to try understand what % of assistance cost goes directly to beneficiaries.   
+This analysis was conducted based on available data collected from different WFP corporate databases as of 27 July 2023. One of the limitations faced was that data from different sources covering different periods were compiled, leading to possible discrepancies. 
 
-Les différentes sources de données sont les suivantes: 
 
-  * Distributed quantities (Food MT and Cash-Based Transfers USD): COMET/DOTS 
+The different data sources used are as follows: 
 
-  * Budget: Funding outlook from the Management plan 
+  * Distributed quantities (Food MT and Cash-Based Transfers USD): COMET/DOTS (*commodity last*)
+```{r echo=FALSE}
+ xfun::embed_file("Final data used/commodity last.xlsx")
+```
 
-  * Expenditures: WINGS FM System 
+  
+  * Budget: Funding outlook from the Management plan  which is the funding situation of RBD     by country as of July 2023, including available funds and new contributions in 2023 (*Funding outlook 2023*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/Funding outlook 2023.xlsx")
+```
+  
 
-  * Beneficiaries: COMET Needs-Based Plan (ACR figures) 
+  * Expenditures: WINGS FM System (*last data expenditure 2019 2022*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/last data expenditure 2019 2022.csv")
+```
+  
 
-  * Assistance days: COMET 
+  * Beneficiaries: COMET Needs-Based Plan (ACR figures) (*New_data_benef_06_07_2023*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/New_data_benef_06_07_2023.xlsx")
+```
 
-  * Nutritional Values: NutVal application  
+  * Assistance days: COMET (*Assistance_days*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/Assistance_days.xlsx")
+```
 
-  * Food baskets (equivalent of the value of assistance in kcal) 
+  * Nutritional Values: NutVal application  (*nutrition*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/nutrition.xlsx")
+```
 
-  * Food security outcomes (FCS) 
+  * Food baskets (equivalent of the value of assistance in kcal) (*equivalent*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/equivalent.xlsx")
+```
+  
+
+  * Food security outcomes (FCS) (*FCS Acceptable*)
+```{r echo=FALSE}
+xfun::embed_file("Final data used/FCS Acceptable.xlsx")
+```
 
   * CH data 
 
-Les procédures d'analyse et désagrégation sont détaillées ci-dessous pour atteindre les résultats de l’analyse. 
+NB: It should be noted that data for only URT1 (Unconditional Resource Transfer 1) was used to conduct this analysis.
 
-N.B.: Il faut noter que ce sont les données sur les URT1 (Unconditional Resource Transfer 1) qui ont été principalement utilisées pour conduire cette analyse. 
+# DAtABASES
 
-## Base expenditure
-Les données de ce fichier ont été fournies par BPU (Expenditures: WINGS FM System).
-Dans cette base il s'agira de sélectionner les variables pays, Année, modalité d'intervention et dépenses. Ensuite on transpose la colonne modalité pour considérer chaque modalité d'intervention comme une variable de la base. Comme indiqué dans le dossier de référence du siège il s'agira de calculer les dépenses **total Food** et les dépenses **total CBT value**. 
-Pour ce qui est du total Food on commencera par additionner les variables 
-Food Value, Food Transfer Cost, FTC External Transport et Cargo Preference.
-(**total_cost_food** = Food Value + Food Transfer Cost + FTC External Transport +Cargo Preference)
+## Expenditure basis
 
-Par la suite il s'agira de calculer le ISC (Indirect Support Cost) qui représente 6.65%  des implémentations. Il y aura ainsi dans la base ISC Food et les ISC cbt.
-Au final on aura la somme de **total_cost_food** plus **total implémentation Food** plus **total ISC food**.
-La même procédure a été faite pour la CBT value.
+The data **last data expenditure 2019 2022** was provided by BPU.
+
+From this database, we use the variables: *Country, Fiscal Year, Modality, Expenditures (USD)* 
+
+We transpose the *Modality* variable to treat each modality as a variable in the database (i.e. *Food Value, FTC External Transport, Food Transfer Cost, CBT CV Value, CBT CV Transfer Cost, Capacity Strengthening, Implementation, Cargo Preference, Service Delivery*). 
+
+In the same file, we calculate total food expenses (*varname total_cost_food*) and total CBT value expenses (*varname total_cost_CBT*). 
+
+For *total_cost_food*, we sum the following variables: *Food Value, Food Transfer Cost, FTC External Transport* and *Cargo Preference*, such that: 
+
+*total_cost_food = Food Value + Food Transfer Cost + FTC External Transport + Cargo Preference*
+
+*For total_cost_CBT*, we sum the following variables: *CBT CV Value* and *CBT CV Transfer Cost*, such that: 
+
+*total_cost_CBT = CBT CV Value + CBT CV Transfer Cost*
+
+Next, we calculate the ISC (Indirect Support Cost) which is equivalent to 6.65% of Implementation. 2 new variables are generated: *ISC_Food* and *ISC_cbt*. 
+
+Next, we generate the following:
+
+*total_cost_implementation_food = total_cost_food + Implementation_food*,
+
+*total_cost_implementation_CBT = total_cost_CBT + Implementation_CBT*
+
+Finally, we generate the variable *total_cost_final_food* and *total_cost_final CBT* as follows: 
+
+*total_cost_final_food = total_cost_implementation_food + isc_food*,
+
+*total_cost_final_CBT = total_cost_implementation_CBT + isc_CBT*
 
 
 ```{r}
@@ -213,8 +264,8 @@ expenditure4 <- expenditure4 |> mutate(
 
 ```
 
-## Classement par région
-Dans la base expenditure les pays ne sont pas classé par région c'est à dire pays costal, Sahel etc... Donc pour prendre en compte cette classification une petite base a été créer afin de l'ajouter dans les bases ou il n'yen aura pas
+## Grouping of countries
+In the file **last data expenditure 2019 2022** provided by BPU, countries are not grouped, i.e. coastal countries, Sahel countries, Cameroon, CAR and Nigeria. To facilitate analysis, we group the countries accordingl
 
 ```{r}
 group_country <- data.frame(
@@ -236,8 +287,11 @@ group_country <- data.frame(
 ```
 
 
-## Base beneficiary
-Dans la base bénéficiaire  trois variables ont été renommées Actual.Food., Actual.CBT. et Actual.Total.
+## Beneficiary database
+
+In the database **New_data_benef_06_07_2023**, to avoid confusion, we renamed the following  variables :
+
+*Actual.Food., Actual.CBT.* and *Actual.Total.* to *benef_food, benef_CBT* and *total_beneficiaries*
 
 ```{r }
 
@@ -254,11 +308,19 @@ beneficiaire_urt <- beneficiaire |> rename(
 
 ```
 
-## Base Commodity
-Dans cette base commodité provenant de supply chaîne nous avons les commodités distribués, les quantités en métric tonne et la valeur total par commodité. Pour Calculer le cost of inaction comme indiqué dans la formule ci-dessous 
+## Commodity Database
+In the file **commodity last** provided by Supply Chain, we refer to the variables: 
+
+*Commodity_Name, SUM_of_Distributed_Quantity_MT* and *SUM_of_Cmdty_value_distributed.*
+The daily cost per beneficiary is calculated using the formula below: 
 ![](formula.png)
-nous avons utilisé le total cost en terme de Kcal et pour cela nous allons d'abord chercher les équivalents des commodités dans la base Nut val pour avoir les Kcal de chaque modalité de la base.
-Nous allons copier les variables de la base commodité dans un fichier excel vide que nous allons sauvegarder sous le nom **equivalent** après avoir ajouté les équivalents de chaque modalité à partir de la base **nutrition** puis nous allons faire une rechercheV pour ajouter les équivalents en kcal de chaque modalité. Cependant il faut noter que les kcal obtenus sont par 100g de chaque modalité et viennent du logiciel Nut val
+In order to calculate Total Cost (incl. ISC) in terms of Kcal, we converted the *SUM_of_Distributed_Quantity_MT* into Kcal by following the below steps: 
+
+1.	Match the commodity name used in the **commodity last** file with commodity names listed in the **equivalent** file. For example, “Beans” in the **commodity last** file was matched with “BEANS, KIDNEY, ALL TYPES” from the equivalent file. 
+
+2.	Using the commodity name from the **equivalent** file, we search for the Kcal value using the **nutrition** file. The **nutrition** file was generated from the NutVal app. 
+Given that the *SUM_of_Distributed_Quantity_MT* is in MT, later we convert the MT into grams to calculate the Kcal value (as explained in section 2).  
+
 
 ```{r}
 commodities <- read.xlsx("Final data used/commodity last.xlsx",sheetName = 1)
@@ -290,10 +352,8 @@ commodities3 <- commodities3 |>
 ```
 
 
-## Base FCS et Assistance days
-Cette base est utilisée pour faire des analyses suplémentaires. Dans cette base nous avons le score de consommation alimentaire acceptable des pays. Pour avoir le score de consommation alimentaire pauvre plus limite il faut faire la différence 100 moins la valeur du score FCS acceptable.
-
-Dans cette partie il s'agira également d'importer la base pour avoir l'assiantance days food et l'assistance day cbt
+## FCS database 
+In order to get a general sense of how change in assistance affects beneficiaries, we calculate the % of those in poor and borderline FCS using the file **FCS Acceptable** (i.e. 100% - % of population in FCS Acceptable = % of population in FCS Poor and Borderline). 
 
 ```{r}
 fcs <- read.xlsx("Final data used/FCS Acceptable.xlsx",sheetName = 1)
@@ -304,22 +364,31 @@ fcs <- fcs |> mutate(
 )  |> select(-Acceptable.FCS)
 
 fcs$Year <- as.numeric(fcs$Year)
-
-## Assistance days
-assistance_food <- read.xlsx("Final data used/Assistance_days (2).xlsx",sheetName = 1)
-assistance_cash <- read.xlsx("Final data used/Assistance_days (2).xlsx",sheetName = 2)
-
-assistance_cash$Year <- as.numeric(assistance_cash$Year)
-
-
-
 ```
 
-## Jointure
-Dans cette partie il s'agira de joindre les bases bénéficiaires, expenditures, commodité et fcs. Pour Procéder à la jointure des fichiers on prendra comme variable de référence les variables, pays, année et group. Il faut aussi noter que les pays tels que **Senegal**, **CAR**, **Guinée bissau**, **Liberia** et **Ghana** n'apparaissent pas dans la base commodité pour l'activité URT1 donc il faudra calculer les kcal pour les pays dont les commodités sont renseignés puis ajouter ces 5 pays dans la base avec valeurs manquantes pour le Kcal comme indiqué dans la syntax ci-dessous
-Pour avoir les Kcal des modalités il faudra prendre en compte que le logiciel **Nut val** donne les kcal pour **100g** alors que notre base commodité contient des données en Metric tonne. (1MT  = 1000000g). *Pour avoir les kcal on  multiplie la variable **Tot_qtityMT par 10000 et par le kcal correspondant de la commodité* . 
+## Assistance days
 
-Par exemple pour si pour 100g de manioc le kcal correspondant est 15. combien de Kcal faut-il pour 20Mt de manioc il suffira de faire une règle de trois et faire **20 * 10000 * 15** ce qui fera 3000000 kcal pour les 20MT.
+We then import sheet 1 for # of food assistance days and sheet 2 for # of CBT assistance days from the file **Assistance_days**. 
+```{r}
+## Assistance days
+assistance_food <- read.xlsx("Final data used/Assistance_days.xlsx",sheetName = 1)
+assistance_cash <- read.xlsx("Final data used/Assistance_days.xlsx",sheetName = 2)
+
+assistance_cash$Year <- as.numeric(assistance_cash$Year)
+```
+
+
+
+#	Joining of databases
+
+This step involves joining the 7 databases: **commodity last, last data expenditure 2019 2022, New_data_benef_06_07_2023, Assistance_days, nutrition, equivalent** and **FCS Acceptable**. 
+
+To join the files, we use the following as reference variables: Country, Year and Group. 
+
+We then calculate the Kcal value for each commodity; since NutVal (**nutrition**) gives the Kcal value per 100g, and the data in **commodity last** is in MT, we multiply Tot_qtityMT by 10000  and by the corresponding Kcal value. 
+
+For example, for 100g of cassava, the corresponding Kcal is 15. In order to calculate the Kcal equivalent of 20MT of cassava, the formula is 20 * 10000 * 15 which gives 3,000,000 Kcal for 20MT.
+
 
 ```{r}
 
@@ -402,10 +471,17 @@ commo_benef_exp_days_FCS <- commo_benef_exp_days_FCS |> relocate(
 
 ```
 
-## calculation
-Dans cette partie il s'agira de calculer les indicateurs tels que le **daily_CpB_food** et le **daily_CpB_CBT**  en utilisant la formule indiquée par HQ et présenté dans la partie du traitement de la base Commodité. 
+#	Daily CpB Food and CBT Calculation 
 
-La base finale regroupant toutes les variables est nommée **final_data_COI**.
+We calculate the daily cost per beneficiary (CpB) for food as well as for CBT using the same aforementioned equation:
+![](formula.png)
+
+The final database with all the variables and calculations is:  **Final_data_COI**
+
+```{r echo=FALSE}
+xfun::embed_file("Final data used/final_data_COI.xlsx")
+```
+
 
 ```{r}
 #daily cost per beneficiary food
@@ -461,8 +537,9 @@ final_dataset_COI <- final_dataset_COI |> mutate(
 
 ```
 
-## Tabulation
-Dans cette partie nous allons sortir les résultats par pays par année afin de les intégrer dans notre rapport d'analyse.
+# Tabulation
+
+To produce tables with the results by country and by year, we applied the following syntax:  
 
 
 ```{r}
@@ -504,9 +581,7 @@ cpb_food_benef <- final_dataset_COI |> filter(Country %in% pays)  |>dplyr::group
   ) |> mutate(
     assistance = "food"
   ) |> select(Country, assistance, 5, everything())
-#cpb by year
-# cpb_food_year <- final_dataset_COI  |>dplyr::group_by( Year) |> 
-#   summarise(daily_CpB_food = mean(daily_CpB_food, na.rm= TRUE)) 
+
 cpb_food_benef <- cpb_food_benef[-c(4,9),]
   
 colMeans(cpb_food_benef[,3:6], na.rm = TRUE)
@@ -600,15 +675,30 @@ value_assistance_food_year <- colMeans(value_assistance_food[,2:5],na.rm = TRUE)
 
 ```
 
-## Simulation ou estimation du total cost et du nombre de bénéficiaire
+# Simulation/estimation of the total assistance cost and number of beneficiaries
 
-A partir de la formule de calcul du cpB proposée par HQ on peut estimer le nombre de bénéficiaire à partir de budget donné en fonction de différntes rations et de nombre de jour d'assistances. Inversement on peut estimer le budget à partir d'un nombre de bénéficiarires données.
-L'application ci-après a été développé pour faciliter l'estimation du nombre de bénéficiaires et du budget à partir d'un CpB donnée et de la value of assistance.
+To simulate various operational scenarios, we use the aforementioned equation. We can estimate the total number of beneficiaries that can be assisted given the daily cost per beneficiary (CpB), the number of assistance days and the total cost. Conversely, we can also simulate the necessary budget given the total number of beneficiaries, daily CpB and number of assistance days. 
 
+
+To facilitate this simulation, an application has been developed: 
 
 <https://idyise.shinyapps.io/coi_estimation/>
 
-la syntaxe ci-dessous permet également de faire l'estimation
+
+
+
+By inserting the expected/desired “Total cost in USD” or “Total Beneficiaries” and then clicking on the “Expand” button on the bottom right, 
+
+![](full.png) 
+
+we can simulate different operational scenarios. 
+
+![](sidebar.png)
+
+The simulations can also be exported in CSV or Excel format. 
+
+![](export.png)
+
 ```{r}
 # Sénario 1
 # estimation of total beneficiary
