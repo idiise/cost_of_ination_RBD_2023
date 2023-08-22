@@ -30,55 +30,40 @@ This analysis was conducted based on available data collected from different WFP
 
 The different data sources used are as follows: 
 
-  * Distributed quantities (Food MT and Cash-Based Transfers USD): COMET/DOTS (*commodity last*)
-```{r echo=FALSE}
- xfun::embed_file("Final data used/commodity last.xlsx")
-```
-
-  
-  * Budget: Funding outlook from the Management plan  which is the funding situation of RBD     by country as of July 2023, including available funds and new contributions in 2023 (*Funding outlook 2023*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/Funding outlook 2023.xlsx")
-```
+  * Distributed quantities (Food MT and Cash-Based Transfers USD): COMET/DOTS 
+  <a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/EerlYoRs37FAgBJk7BQ_0swBFCZxYpZyUyleu4pdr8Pmog?e=IpMX0g">commodity last</a>
   
 
-  * Expenditures: WINGS FM System (*last data expenditure 2019 2022*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/last data expenditure 2019 2022.csv")
-```
   
+  * Budget: Funding outlook from the Management plan  which is the funding situation of RBD     by country as of July 2023, including available funds and new contributions in 2023
+<a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/EeEPkKPs8_9OpAUb7PzkRG8BAeoIYMTEYORGuiMrHaHNNQ?e=QSRg4B">Funding outlook 2023</a>
 
-  * Beneficiaries: COMET Needs-Based Plan (ACR figures) (*New_data_benef_06_07_2023*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/New_data_benef_06_07_2023.xlsx")
-```
 
-  * Assistance days: COMET (*Assistance_days*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/Assistance_days.xlsx")
-```
+  * Expenditures: WINGS FM System
+<a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/Ecg_RRVpWAhBq9mDLhC8uW0BDw41n2Gzortn2fwrXyrMFQ?e=knjZQX">last data expenditure 2019 2022</a>
+ 
 
-  * Nutritional Values: NutVal application  (*nutrition*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/nutrition.xlsx")
-```
+  * Beneficiaries: COMET Needs-Based Plan (ACR figures)
+  <a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/EegVLJaziGBChe01y-Suid8B5ZfD2Dw8BAR1HuRA9gEx-g?e=nhc7I0">New_data_benef_06_07_2023</a>
 
-  * Food baskets (equivalent of the value of assistance in kcal) (*equivalent*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/equivalent.xlsx")
-```
-  
+  * Assistance days: COMET (**)
+  <a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/EQyE6YcuUL9ItNJrnCAnHdsB9_7PE3OrpUCZCvQ0QomwSg?e=LZcvq4">Assistance_days</a>
+
+  * Nutritional Values: NutVal application
+    <a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/Ee_flGPX8wBItAZuUK0hNyoBu_hE4-24EVyo4uRDRaA-6Q?e=a9ABDM">nutrition</a>
+    
+  * Food baskets (equivalent of the value of assistance in kcal)
+  <a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/Eeu1L6CdVpZAly-KSUT6pE0BRb2i-8c1BV_vTkNNAJEAKA?e=5yBzYh">equivalent</a>
+ 
 
   * Food security outcomes (FCS) (*FCS Acceptable*)
-```{r echo=FALSE}
-xfun::embed_file("Final data used/FCS Acceptable.xlsx")
-```
+  <a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/EQyE6YcuUL9ItNJrnCAnHdsB9_7PE3OrpUCZCvQ0QomwSg?e=tWAuOI">FCS Acceptable</a>
 
   * CH data 
 
 NB: It should be noted that data for only URT1 (Unconditional Resource Transfer 1) was used to conduct this analysis.
 
-# DAtABASES
+# DATABASES
 
 ## Expenditure basis
 
@@ -476,11 +461,8 @@ commo_benef_exp_days_FCS <- commo_benef_exp_days_FCS |> relocate(
 We calculate the daily cost per beneficiary (CpB) for food as well as for CBT using the same aforementioned equation:
 ![](formula.png)
 
-The final database with all the variables and calculations is:  **Final_data_COI**
-
-```{r echo=FALSE}
-xfun::embed_file("Final data used/final_data_COI.xlsx")
-```
+The final database with all the variables and calculations is:
+<a href="https://wfp.sharepoint.com/:x:/s/VAM-RBD/EUoApJUAm4JPuVYNQ38XnbUBO52FpEh-3_9asHDuCEoXLQ?e=JePKf1">Final_data_COI</a>
 
 
 ```{r}
